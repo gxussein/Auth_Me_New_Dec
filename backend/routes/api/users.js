@@ -31,20 +31,29 @@ const validateSignup = [
   
 
 // Sign up
-router.post(
-  '/',
-  validateSignup,
-  async (req, res) => {
-    const { email, password, username } = req.body;
-    const user = await User.signup({ email, username, password });
-
-    await setTokenCookie(res, user);
-
-    return res.json({
-      user: user
-    });
-  }
-);
-
-
-module.exports = router;
+router.post('/', validateSignup, async (req, res) => {
+    const { firstName, lastName, email, password, username } = req.body;
+    const user = await User.create({
+      firstName,
+      lastName,
+      email,
+      username,
+      password,
+    });
+  
+    const safeUser = {
+      id: user.id,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      email: user.email,
+      username: user.username,
+    };
+  
+    await setTokenCookie(res, safeUser);
+  
+    return res.json({
+      user: safeUser
+    });
+  });
+  
+  module.exports = router;
