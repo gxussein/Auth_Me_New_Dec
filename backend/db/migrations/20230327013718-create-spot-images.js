@@ -29,7 +29,7 @@ module.exports = {
         url: {
           type: Sequelize.STRING,
           allowNull: false,
-          unique: true,
+          unique: false,
         },
         preview: {
           type: Sequelize.BOOLEAN,

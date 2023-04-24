@@ -30,7 +30,7 @@ module.exports = {
         lng: 33.853,
         name: 'Houston house',
         description:
-          'Description for this airbnb',
+          'Never seen a space, come check this Houston AirBnB because it is out of this World. Houston WE HAVE A AIRBNB',
         price: 300,
       },
       {
@@ -43,7 +43,7 @@ module.exports = {
         lng: 88.644,
         name: 'New York house',
         description:
-          'Description for this airbnb',
+          'Get sturdy by staying in this Sturdy Apt',
         price: 200,
       },
       {
@@ -56,7 +56,7 @@ module.exports = {
         lng: 66.578,
         name: 'Florida house',
         description:
-         'Description for this airbnb',
+         'Why only have spring break for a week when you can have it whenever youd like',
         price: 500,
       },
     ], {});

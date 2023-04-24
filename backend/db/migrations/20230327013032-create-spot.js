@@ -1,9 +1,10 @@
 "use strict";
 /** @type {import('sequelize-cli').Migration} */
 
+//object you push into
 let options = {};
 if (process.env.NODE_ENV === "production") {
-  options.schema = process.env.SCHEMA;
+  options.schema = process.env.SCHEMA; // define your schema in options object
 }
 
 module.exports = {
@@ -22,14 +23,12 @@ module.exports = {
           allowNull: false,
           references: {
             model: "Users",
-            key: "id",
           },
-          onDelete: "cascade",
+          onDelete: "CASCADE",
         },
         address: {
           type: Sequelize.STRING,
           allowNull: false,
-          unique: true,
         },
         city: {
           type: Sequelize.STRING,
@@ -58,7 +57,6 @@ module.exports = {
         description: {
           type: Sequelize.STRING,
           allowNull: false,
-          unique: true,
         },
         price: {
           type: Sequelize.FLOAT,
