@@ -3,9 +3,8 @@
 
 let options = {};
 if (process.env.NODE_ENV === "production") {
-  options.schema = process.env.SCHEMA;
+  options.schema = process.env.SCHEMA; // define your schema in options object
 }
-
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable(
@@ -20,24 +19,17 @@ module.exports = {
         spotId: {
           type: Sequelize.INTEGER,
           allowNull: false,
-          references: {
-            model: "Spots",
-            key: "id",
-          },
-          onDelete: "cascade",
+          references: { model: "Spots" },
+          onDelete: "CASCADE",
         },
         userId: {
           type: Sequelize.INTEGER,
           allowNull: false,
-          references: {
-            model: "Users",
-            key: "id",
-          },
-          onDelete: "cascade",
+          references: { model: "Users" },
+          onDelete: "CASCADE",
         },
         review: {
           type: Sequelize.STRING,
-          allowNull: false,
         },
         stars: {
           type: Sequelize.INTEGER,
